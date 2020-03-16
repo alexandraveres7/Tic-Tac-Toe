@@ -1,0 +1,11 @@
+<div *ngIf="ldboards?.length > 0; else noLdboards">
+ <ul *ngFor="let ldb of ldboards" class="collection">
+   <li class="collection-ldb"><strong>{{ldb.winner}}: </strong> {{ldb.name1}}
+  </li>
+ </ul>
+</div>
+
+<ng-template #noLdboards>
+  <hr>
+  <h5> There are no scores in the board</h5>
+</ng-template>

@@ -15,12 +15,15 @@ import { AngularFireDatabaseModule } from '@angular/fire/database';
 
 // environment
 import { environment } from '../environments/environment';
+import { LeaderboardsComponent } from './leaderboards/leaderboards.component';
+import { LeaderboardService } from './services/leaderboard.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     SquareComponent,
-    BoardComponent
+    BoardComponent,
+    LeaderboardsComponent
   ],
   imports: [
     BrowserModule,
@@ -33,7 +36,7 @@ import { environment } from '../environments/environment';
     NbEvaIconsModule,
     NbButtonModule
   ],
-  providers: [],
+  providers: [LeaderboardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
