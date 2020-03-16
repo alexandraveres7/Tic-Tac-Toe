@@ -1,0 +1,22 @@
+@import '~@nebular/theme/styles/theming';
+@import '~@nebular/theme/styles/themes/cosmic';
+
+$nb-themes: nb-register-theme((
+
+  // add your variables here like:
+
+   color-primary-100: #95bca4,
+   color-primary-200: #ffaa00,
+  // color-primary-300: #a6c1ff,
+  // color-primary-400: #598bff,
+  // color-primary-500: #3366ff,
+  // color-primary-600: #274bdb,
+  // color-primary-700: #1a34b8,
+  // color-primary-800: #102694,
+  // color-primary-900: #091c7a,
+  button-outline-color: color-primary-100,
+  button-filled-succes-active-background-color: color-primary-200,
+
+  background-basic-color-1: color-primary-100,
+
+), cosmic, cosmic);

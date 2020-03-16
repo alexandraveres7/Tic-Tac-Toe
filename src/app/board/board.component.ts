@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-board',
@@ -9,7 +9,11 @@ export class BoardComponent implements OnInit {
 
   squares: any[];
   xIsNext: boolean;
+  flag: boolean;
   winner: string;
+  winner2: string;
+
+  @ViewChild('bord') bord;
 
   constructor() { }
 
@@ -21,6 +25,7 @@ export class BoardComponent implements OnInit {
     this.squares = Array(9).fill(null);
     this.winner = null;
     this.xIsNext = true;
+    this.flag = false;
   }
 
   get player() {
@@ -34,6 +39,10 @@ export class BoardComponent implements OnInit {
     }
 
     this.winner = this.calculateWinner();
+
+    console.log(this.bord);
+    console.log(this.winner);
+
   }
 
   calculateWinner() {
@@ -56,8 +65,12 @@ export class BoardComponent implements OnInit {
         ) {
           return this.squares[a];
         }
+
     }
+
     return null;
+
+
   }
 
 }
