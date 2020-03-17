@@ -4,15 +4,15 @@
 
 export const environment = {
   production: false,
-  firebase: {
-    apiKey: "AIzaSyB6Sf35gvRIUGMdFnGbS_42-LEhgGxjMtc",
-    authDomain: "tic-tac-toe-42fab.firebaseapp.com",
-    databaseURL: "https://tic-tac-toe-42fab.firebaseio.com",
-    projectId: "tic-tac-toe-42fab",
-    storageBucket: "tic-tac-toe-42fab.appspot.com",
-    messagingSenderId: "115906306924",
-    appId: "1:115906306924:web:89c4916f4ae813f345c949",
-    measurementId: "G-YQG043EX4G"
+  firebaseConfig: {
+    apiKey: 'AIzaSyB6Sf35gvRIUGMdFnGbS_42-LEhgGxjMtc',
+    authDomain: 'tic-tac-toe-42fab.firebaseapp.com',
+    databaseURL: 'https://tic-tac-toe-42fab.firebaseio.com',
+    projectId: 'tic-tac-toe-42fab',
+    storageBucket: 'tic-tac-toe-42fab.appspot.com',
+    messagingSenderId: '115906306924',
+    appId: '1:115906306924:web:89c4916f4ae813f345c949',
+    measurementId: 'G-YQG043EX4G'
   }
 };
 
