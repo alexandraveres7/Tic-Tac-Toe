@@ -2,16 +2,19 @@
 <h1>Leaderboard</h1>
 
 
-<div *ngFor="let test of ldboards">
-  <h2>Winner: {{test.winner}}</h2>
-  <h2>{{test.name1}}</h2>
-  <h2>{{test.name2}}</h2>
+<app-navbar></app-navbar>
+
+<p></p>
+<p></p>
+
+<div class="container">
+  <app-add-leader-board></app-add-leader-board>
 </div>
 
 
 <div *ngIf="ldboards?.length > 0; else noLdboards">
  <ul *ngFor="let ldb of ldboards" class="collection">
-   <li class="collection-ldb"><strong>{{ldb.winner}}: </strong> {{ldb.name1}}</li>
+   <li (dblclick)="deleteItem($event, ldb)" class="collection-ldb"><strong>{{ldb.title}}: </strong>{{ldb.description}}</li>
  </ul>
 </div>
 

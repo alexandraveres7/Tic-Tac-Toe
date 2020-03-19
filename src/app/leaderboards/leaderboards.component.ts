@@ -21,4 +21,8 @@ export class LeaderboardsComponent implements OnInit {
     });
   }
 
+  deleteItem(event, ldb) {
+    this.ldboardsService.deleteItem(ldb);
+  }
+
 }

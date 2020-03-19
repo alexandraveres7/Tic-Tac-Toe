@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+
 import { Routes, RouterModule } from '@angular/router';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -21,7 +22,10 @@ import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { environment } from '../environments/environment';
 
 import { LeaderboardService } from './services/leaderboard.service';
-import {AngularFirestore} from "@angular/fire/firestore";
+import {AngularFirestore} from '@angular/fire/firestore';
+import { NavbarComponent } from './navbar/navbar.component';
+import { AddLeaderBoardComponent } from './add-leader-board/add-leader-board.component';
+import {FormsModule} from '@angular/forms';
 
 
 const appRoutes: Routes = [
@@ -36,7 +40,9 @@ const appRoutes: Routes = [
     AppComponent,
     SquareComponent,
     BoardComponent,
-    LeaderboardsComponent
+    LeaderboardsComponent,
+    NavbarComponent,
+    AddLeaderBoardComponent
   ],
   imports: [
     BrowserModule,
@@ -44,11 +50,12 @@ const appRoutes: Routes = [
     AngularFireModule.initializeApp(environment.firebaseConfig, 'angular'),
     AngularFireDatabaseModule,
     BrowserAnimationsModule,
-    NbThemeModule.forRoot({ name: 'cosmic' }),
+    NbThemeModule.forRoot({name: 'cosmic'}),
     NbLayoutModule,
     NbEvaIconsModule,
     RouterModule.forRoot(appRoutes),
-    NbButtonModule
+    NbButtonModule,
+    FormsModule
   ],
   providers: [AngularFirestore],
   bootstrap: [AppComponent]
