@@ -26,11 +26,16 @@ import {AngularFirestore} from '@angular/fire/firestore';
 import { NavbarComponent } from './navbar/navbar.component';
 import { AddLeaderBoardComponent } from './add-leader-board/add-leader-board.component';
 import {FormsModule} from '@angular/forms';
+import { StartComponent } from './start/start.component';
+import { GamemodeComponent } from './gamemode/gamemode.component';
 
 
 const appRoutes: Routes = [
   {path: 'playboard', component: BoardComponent},
-  {path: 'leaderboard', component: LeaderboardsComponent}
+  {path: 'leaderboard', component: LeaderboardsComponent},
+  {path: 'start', component: StartComponent},
+  {path: 'mode', component: GamemodeComponent}
+
 ];
 
 
@@ -42,7 +47,9 @@ const appRoutes: Routes = [
     BoardComponent,
     LeaderboardsComponent,
     NavbarComponent,
-    AddLeaderBoardComponent
+    AddLeaderBoardComponent,
+    StartComponent,
+    GamemodeComponent
   ],
   imports: [
     BrowserModule,
