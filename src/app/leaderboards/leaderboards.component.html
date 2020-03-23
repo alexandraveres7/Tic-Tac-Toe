@@ -3,9 +3,11 @@
 
 
 <div *ngIf="ldboards?.length > 0; else noLdboards">
+
  <ul *ngFor="let ldb of ldboards" class="collection">
    <li (dblclick)="deleteItem($event, ldb)" class="collection-ldb"><strong>{{ldb.name1}} VS. </strong> <strong>{{ldb.name2}} </strong></li>
  </ul>
+
 </div>
 
 <ng-template #noLdboards>
