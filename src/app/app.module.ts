@@ -23,21 +23,20 @@ import { environment } from '../environments/environment';
 
 import { LeaderboardService } from './services/leaderboard.service';
 import {AngularFirestore} from '@angular/fire/firestore';
-import { NavbarComponent } from './navbar/navbar.component';
 import { AddLeaderBoardComponent } from './add-leader-board/add-leader-board.component';
 import {FormsModule} from '@angular/forms';
 import { StartComponent } from './start/start.component';
 import { GamemodeComponent } from './gamemode/gamemode.component';
+import { TwoplayerdetailsComponent } from './twoplayerdetails/twoplayerdetails.component';
 
 
 const appRoutes: Routes = [
   {path: 'playboard', component: BoardComponent},
   {path: 'leaderboard', component: LeaderboardsComponent},
   {path: 'start', component: StartComponent},
-  {path: 'mode', component: GamemodeComponent}
-
+  {path: 'gamemode', component: GamemodeComponent},
+  {path: 'twoplayerdetails', component: TwoplayerdetailsComponent}
 ];
-
 
 // @ts-ignore
 @NgModule({
@@ -46,10 +45,10 @@ const appRoutes: Routes = [
     SquareComponent,
     BoardComponent,
     LeaderboardsComponent,
-    NavbarComponent,
     AddLeaderBoardComponent,
     StartComponent,
-    GamemodeComponent
+    GamemodeComponent,
+    TwoplayerdetailsComponent
   ],
   imports: [
     BrowserModule,

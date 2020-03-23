@@ -1,0 +1,18 @@
+<h2>Please type in your details:</h2>
+
+<form (ngSubmit)="onSubmit()" class="col s6">
+
+  <h1> Player 1</h1>
+  <label for="fname1">First Name</label>
+  <input type="text" id="fname1" [(ngModel)]="ldboard.name1" name="fname1">
+  <label for="lname1">Last Name</label>
+  <input type="text" id="lname1" [(ngModel)]="ldboard.lname1" name="lname1">
+
+  <h1> Player 2</h1>
+  <label for="fname2">First Name</label>
+  <input type="text" id="fname2" [(ngModel)]="ldboard.name2" name="fname2">
+  <label for="lname2">Last Name</label>
+  <input type="text" id="lname2" [(ngModel)]="ldboard.lname2" name="lname2">
+
+  <input routerLink="/playboard" type="submit" value="SUBMIT" class="butt" >
+</form>

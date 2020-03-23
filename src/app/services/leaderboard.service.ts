@@ -16,7 +16,7 @@ export class LeaderboardService {
   constructor(private afs: AngularFirestore) {
     // this.ldboards = this.afs.collection('ldboards').valueChanges();
 
-    this.leaderboardCollection = this.afs.collection('ldboards', ref => ref.orderBy('title', 'asc'));
+    this.leaderboardCollection = this.afs.collection('ldboards', ref => ref.orderBy('name1', 'asc'));
 
 
     this.ldboards = this.leaderboardCollection.snapshotChanges().pipe(

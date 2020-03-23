@@ -16,7 +16,6 @@ export class LeaderboardsComponent implements OnInit {
 
   ngOnInit(): void {
     this.ldboardsService.getLeaderboards().subscribe(ldboards => {
-      // console.log(ldboards);
       this.ldboards = ldboards;
     });
   }
