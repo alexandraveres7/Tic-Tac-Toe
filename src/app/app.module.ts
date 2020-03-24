@@ -21,9 +21,7 @@ import { AngularFireDatabaseModule } from '@angular/fire/database';
 // environment
 import { environment } from '../environments/environment';
 
-import { LeaderboardService } from './services/leaderboard.service';
 import {AngularFirestore} from '@angular/fire/firestore';
-import { AddLeaderBoardComponent } from './add-leader-board/add-leader-board.component';
 import {FormsModule} from '@angular/forms';
 import { StartComponent } from './start/start.component';
 import { GamemodeComponent } from './gamemode/gamemode.component';
@@ -45,7 +43,6 @@ const appRoutes: Routes = [
     SquareComponent,
     BoardComponent,
     LeaderboardsComponent,
-    AddLeaderBoardComponent,
     StartComponent,
     GamemodeComponent,
     TwoplayerdetailsComponent
