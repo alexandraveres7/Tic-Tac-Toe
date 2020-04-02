@@ -12,10 +12,8 @@ export class BoardComponent implements OnInit {
   xIsNext: boolean;
   flag: boolean;
   winner: string;
-
-
+  name1: string;
   @ViewChild('bord') bord;
-
   constructor() { }
 
   ngOnInit() {

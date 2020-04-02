@@ -5,4 +5,8 @@ export interface Leaderboard {
   name2?: string;
   lname2?: string;
   winner?: string;
+  score1?: number;
+  score2?: number;
 }
+
+

@@ -4,6 +4,7 @@ import { Leaderboard } from '../leaderboard.model';
 import { Observable } from 'rxjs';
 import {map, switchMap} from 'rxjs/operators';
 import {pipe} from 'rxjs';
+import get = Reflect.get;
 
 @Injectable({
   providedIn: 'root'
@@ -27,6 +28,11 @@ export class LeaderboardService {
       })),
     );
   }
+
+  leaderBoardFuntion(playerX: string ) {
+    this.leaderboardCollection = this.afs.collection('ldboards', ref => ref.where('name1', '==' , playerX ));
+  }
+
 
   getLeaderboards() {
     return this.ldboards;
