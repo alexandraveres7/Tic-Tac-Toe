@@ -1,4 +1,7 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import {Component, OnDestroy, OnInit, ViewChild} from '@angular/core';
+import {Leaderboard} from "../leaderboard.model";
+import {LeaderboardService} from "../services/leaderboard.service";
+import {Subscription} from "rxjs";
 
 
 @Component({
@@ -6,18 +9,26 @@ import { Component, OnInit, ViewChild } from '@angular/core';
   templateUrl: './board.component.html',
   styleUrls: ['./board.component.scss']
 })
-export class BoardComponent implements OnInit {
+export class BoardComponent implements OnInit , OnDestroy{
 
   squares: any[];
   xIsNext: boolean;
   flag: boolean;
   winner: string;
   name1: string;
+  gamePlayers: Leaderboard;
+  subscription: Subscription;
+
   @ViewChild('bord') bord;
-  constructor() { }
+  constructor(private leaderboardService: LeaderboardService) { }
 
   ngOnInit() {
     this.newGame();
+    this.subscription = this.leaderboardService.getPlayers().subscribe(value => {
+      this.gamePlayers = value;
+      console.log(value);
+    });
+    console.log(this.gamePlayers);
   }
 
   newGame() {
@@ -38,6 +49,29 @@ export class BoardComponent implements OnInit {
     }
 
     this.winner = this.calculateWinner();
+    if (this.winner) {
+      if (this.xIsNext) {
+        this.leaderboardService.winnerIs(
+          this.gamePlayers.id,
+          this.gamePlayers.name1,
+          this.gamePlayers.name2,
+          this.gamePlayers.lname1,
+          this.gamePlayers.lname2,
+          'O'
+          );
+        console.log('winner is 0');
+      } else {
+        this.leaderboardService.winnerIs(
+          this.gamePlayers.id,
+          this.gamePlayers.name1,
+          this.gamePlayers.name2,
+          this.gamePlayers.lname1,
+          this.gamePlayers.lname2,
+          'X'
+        );
+        console.log('winner is x');
+      }
+    }
 
     console.log(this.bord);
     console.log(this.winner);
@@ -45,8 +79,6 @@ export class BoardComponent implements OnInit {
   }
 
   calculateWinner() {
-
-
     const lines = [
      [0, 1, 2],
      [3, 4, 5],
@@ -74,6 +106,10 @@ export class BoardComponent implements OnInit {
     return null;
 
 
+  }
+
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
   }
 
 }

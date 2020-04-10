@@ -12,7 +12,7 @@ import { Component, Input} from '@angular/core';
     '#myX {background-color: green;}'
   ]
 })
-export class SquareComponent{
+export class SquareComponent {
 
   @Input() value: 'X' | 'O';
   @Input() playGame: boolean;
