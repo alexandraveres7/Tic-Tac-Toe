@@ -10,12 +10,14 @@
      <TR BGCOLOR="#95bca4" ALIGN="center" VALIGN="middle">
        <TD WIDTH="200" HEIGHT="50"><B><FONT COLOR="#AD8CDB"><STRONG>Player1</STRONG></FONT></B></TD>
        <TD WIDTH="200"HEIGHT="50"><B><FONT COLOR="#AD8CDB"><STRONG>Player2</STRONG></FONT></B></TD>
-       <TD WIDTH="100" HEIGHT="50"><B><FONT COLOR="#AD8CDB"><strong>Score</strong></FONT></B></TD>
+       <TD WIDTH="100" HEIGHT="50"><B><FONT COLOR="#AD8CDB"><strong>Status</strong></FONT></B></TD>
      </TR>
      <TR VALIGN="middle">
        <TD WIDTH="200" HEIGHT="20" ALIGN="center"><FONT COLOR="#FFFFFF">{{ldb.name1}}</FONT></TD>
        <TD WIDTH="200" HEIGHT="20" ALIGN="center"><FONT COLOR="#FFFFFF">{{ldb.name2}}</FONT></TD>
-       <TD WIDTH="100" HEIGHT="20" ALIGN="center"><FONT COLOR="#FFFFFF">{{ldb.score1}}0 - 0{{ldb.score2}}</FONT></TD>
+       <TD WIDTH="100" HEIGHT="20" ALIGN="center"><FONT COLOR="#FFFFFF">
+         {{!ldb.winner ? 'Draw': (ldb.winner === 'X' ? "Win " + ldb.name1: "Win " + ldb.name2) }}
+       </FONT></TD>
      </TR>
 
    </TABLE>
