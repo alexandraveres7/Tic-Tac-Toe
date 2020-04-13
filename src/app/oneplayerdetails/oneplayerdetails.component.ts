@@ -1,14 +1,14 @@
-import {Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import {NgForm} from '@angular/forms';
 import {LeaderboardService} from '../services/leaderboard.service';
 import {Router} from '@angular/router';
-import {NgForm} from '@angular/forms';
 
 @Component({
-  selector: 'app-twoplayerdetails',
-  templateUrl: './twoplayerdetails.component.html',
-  styleUrls: ['./twoplayerdetails.component.scss']
+  selector: 'app-oneplayerdetails',
+  templateUrl: './oneplayerdetails.component.html',
+  styleUrls: ['./oneplayerdetails.component.scss']
 })
-export class TwoplayerdetailsComponent implements OnInit {
+export class OneplayerdetailsComponent implements OnInit {
 
   constructor(private leaderboardService: LeaderboardService, private router: Router) {
   }
@@ -21,10 +21,11 @@ export class TwoplayerdetailsComponent implements OnInit {
     console.log(f.valid);
     this.leaderboardService.addItem({
       name1: f.value.fname1,
-      name2: f.value.fname2,
+      name2: 'A',
       lname1: f.value.lname1,
-      lname2: f.value.lname2}
-      );
+      lname2: 'I'}
+    );
     this.router.navigate(['/playboard']);
   }
+
 }

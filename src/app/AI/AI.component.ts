@@ -2,19 +2,21 @@ import {Component, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import {Leaderboard} from '../leaderboard.model';
 import {LeaderboardService} from '../services/leaderboard.service';
 import {Subscription} from 'rxjs';
+import {max, min} from 'rxjs/operators';
 
 
 @Component({
   selector: 'app-board',
-  templateUrl: './board.component.html',
-  styleUrls: ['./board.component.scss']
+  templateUrl: './AI.component.html',
+  styleUrls: ['./AI.component.scss']
 })
-export class BoardComponent implements OnInit , OnDestroy {
+export class AIComponent implements OnInit , OnDestroy {
 
   squares: any[];
   xIsNext: boolean;
   flag: boolean;
   winner: string;
+  AIBoard: any[][];
   name1: string;
   gamePlayers: Leaderboard;
   subscription: Subscription;
@@ -22,7 +24,91 @@ export class BoardComponent implements OnInit , OnDestroy {
   @ViewChild('bord') bord;
   constructor(private leaderboardService: LeaderboardService) { }
 
-  ngOnInit() {
+  arrayToMatrix(arr) {
+
+    const newArr = [];
+    while (arr.length) { newArr.push(arr.slice(0, 3)); }
+
+    return newArr;
+  }
+
+  matrixToArray(matrix) {
+
+    let newArr = [];
+    // tslint:disable-next-line:prefer-for-of
+    for (let i = 0; i < matrix.length; i++) {
+      newArr = newArr.concat(matrix[i].slice());
+    }
+
+    return newArr;
+  }
+
+   bestMove() {
+    // AI to make its turn
+    let bestScore = -Infinity;
+    let move;
+    for (let i = 0; i < 3; i++) {
+      for (let j = 0; j < 3; j++) {
+        // Is the spot available?
+        if (this.AIBoard[i][j] === '') {
+          this.AIBoard[i][j] = this.player;
+          let score = minimax(this.AIBoard, 0, false);
+          this.AIBoard[i][j] = '';
+          if (score > bestScore) {
+            bestScore = score;
+            move = { i, j };
+          }
+        }
+      }
+    }
+    this.AIBoard[move.i][move.j] = ai;
+    currentPlayer = human;
+  }
+
+  let scores = {
+    X: 10,
+    O: -10,
+    tie: 0
+  };
+
+   function minimax(board, depth, isMaximizing) {
+    let result = checkWinner();
+    if (result !== null) {
+      return scores[result];
+    }
+
+    if (isMaximizing) {
+      let bestScore = -Infinity;
+      for (let i = 0; i < 3; i++) {
+        for (let j = 0; j < 3; j++) {
+          // Is the spot available?
+          if (board[i][j] == '') {
+            board[i][j] = ai;
+            let score = minimax(board, depth + 1, false);
+            board[i][j] = '';
+            bestScore = max(score, bestScore);
+          }
+        }
+      }
+      return bestScore;
+    } else {
+      let bestScore = Infinity;
+      for (let i = 0; i < 3; i++) {
+        for (let j = 0; j < 3; j++) {
+          // Is the spot available?
+          if (board[i][j] == '') {
+            board[i][j] = human;
+            let score = minimax(board, depth + 1, true);
+            board[i][j] = '';
+            bestScore = min(score, bestScore);
+          }
+        }
+      }
+      return bestScore;
+    }
+  }
+
+ngOnInit() {
     this.newGame();
     this.subscription = this.leaderboardService.getPlayers().subscribe(value => {
       this.gamePlayers = value;

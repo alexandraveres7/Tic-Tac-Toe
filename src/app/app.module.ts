@@ -26,6 +26,8 @@ import {FormsModule} from '@angular/forms';
 import { StartComponent } from './start/start.component';
 import { GamemodeComponent } from './gamemode/gamemode.component';
 import { TwoplayerdetailsComponent } from './twoplayerdetails/twoplayerdetails.component';
+import { OneplayerdetailsComponent } from './oneplayerdetails/oneplayerdetails.component';
+import {AIComponent} from './AI/AI.component';
 
 
 const appRoutes: Routes = [
@@ -33,7 +35,8 @@ const appRoutes: Routes = [
   {path: 'leaderboard', component: LeaderboardsComponent},
   {path: 'start', component: StartComponent},
   {path: 'gamemode', component: GamemodeComponent},
-  {path: 'twoplayerdetails', component: TwoplayerdetailsComponent}
+  {path: 'twoplayerdetails', component: TwoplayerdetailsComponent},
+  {path: 'oneplayerdetails', component: OneplayerdetailsComponent }
 ];
 
 // @ts-ignore
@@ -45,7 +48,9 @@ const appRoutes: Routes = [
     LeaderboardsComponent,
     StartComponent,
     GamemodeComponent,
-    TwoplayerdetailsComponent
+    TwoplayerdetailsComponent,
+    OneplayerdetailsComponent,
+    AIComponent
   ],
   imports: [
     BrowserModule,
