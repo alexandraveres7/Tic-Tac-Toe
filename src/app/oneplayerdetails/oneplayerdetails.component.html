@@ -1,0 +1,12 @@
+<h2>Please type in your details:</h2>
+
+<form #f="ngForm" (ngSubmit)="onSubmit(f)" class="col s6">
+
+  <h1> Player Name</h1>
+  <label for="fname1">First Name</label>
+  <input type="text" id="fname1" ngModel name="fname1" required>
+  <label for="lname1">Last Name</label>
+  <input type="text" id="lname1" ngModel name="lname1" required>
+
+  <button type="submit" class="butt" [disabled]="!f.valid">LET'S GO</button>
+</form>
