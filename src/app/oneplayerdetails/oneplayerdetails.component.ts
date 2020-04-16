@@ -2,14 +2,14 @@ import {Component, OnInit} from '@angular/core';
 import {Leaderboard} from '../leaderboard.model';
 import {LeaderboardService} from '../services/leaderboard.service';
 import {Router} from '@angular/router';
-import {NgForm} from "@angular/forms";
+import {NgForm} from '@angular/forms';
 
 @Component({
   selector: 'app-twoplayerdetails',
-  templateUrl: './twoplayerdetails.component.html',
-  styleUrls: ['./twoplayerdetails.component.scss']
+  templateUrl: './oneplayerdetails.component.html',
+  styleUrls: ['./oneplayerdetails.component.scss']
 })
-export class TwoplayerdetailsComponent implements OnInit {
+export class OneplayerdetailsComponent implements OnInit {
 
   constructor(private leaderboardService: LeaderboardService, private router: Router) {
   }
@@ -22,10 +22,10 @@ export class TwoplayerdetailsComponent implements OnInit {
     console.log(f.valid);
     this.leaderboardService.addItem({
       name1: f.value.fname1,
-      name2: f.value.fname2,
+      name2: 'AI',
       lname1: f.value.lname1,
-      lname2: f.value.lname2}
+      lname2: 'Minimax'}
       );
-    this.router.navigate(['/playboard']);
+    this.router.navigate(['/playboardAI']);
   }
 }

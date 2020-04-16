@@ -12,16 +12,15 @@ import { Component, Input} from '@angular/core';
     '#myX {background-color: green;}'
   ]
 })
-export class SquareComponent{
+export class SquareComponent {
 
   @Input() value: 'X' | 'O';
   @Input() playGame: boolean;
   @Input() pos: number;
-  @Input() winState: Array<number>;
+  @Input() winState: Array<any>;
 
   f() {
     return this.winState.includes(this.pos);
   }
 
 }
-
