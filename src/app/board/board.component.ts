@@ -1,8 +1,8 @@
 import {Component, OnDestroy, OnInit, ViewChild} from '@angular/core';
-import {Leaderboard} from "../leaderboard.model";
-import {LeaderboardService} from "../services/leaderboard.service";
-import {Subscription} from "rxjs";
-
+import {Leaderboard} from '../leaderboard.model';
+import {LeaderboardService} from '../services/leaderboard.service';
+import {Subscription} from 'rxjs';
+// import io from 'socket.io-client';
 
 @Component({
   selector: 'app-board',
@@ -18,11 +18,13 @@ export class BoardComponent implements OnInit , OnDestroy{
   name1: string;
   gamePlayers: Leaderboard;
   subscription: Subscription;
+  // private socket: any;
 
   @ViewChild('bord') bord;
   constructor(private leaderboardService: LeaderboardService) { }
 
   ngOnInit() {
+   // this.socket = io('http://localhost:3000');
     this.newGame();
     this.subscription = this.leaderboardService.getPlayers().subscribe(value => {
       this.gamePlayers = value;
@@ -36,6 +38,7 @@ export class BoardComponent implements OnInit , OnDestroy{
     this.winner = null;
     this.xIsNext = true;
     this.flag = false;
+    // this.socket.on('player', this.player);
   }
 
   get player() {
@@ -44,9 +47,9 @@ export class BoardComponent implements OnInit , OnDestroy{
 
   makeMove(idx: number) {
     if (!this.squares[idx]) {
-       this.squares.splice(idx, 1 , this.player);
-       this.xIsNext = !this.xIsNext;
-    }
+        this.squares.splice(idx, 1, this.player);
+        this.xIsNext = !this.xIsNext;
+      }
 
     this.winner = this.calculateWinner();
     if (this.winner) {

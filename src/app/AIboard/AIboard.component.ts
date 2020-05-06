@@ -117,33 +117,6 @@ export class AIboardComponent implements OnInit, OnDestroy {
     console.log(this.winner);
 
   }
-
-  calculateWinner() {
-    const lines = [
-      [0, 1, 2],
-      [3, 4, 5],
-      [6, 7, 8],
-      [0, 3, 6],
-      [1, 4, 7],
-      [2, 5, 8],
-      [0, 4, 8],
-      [2, 4, 6]
-    ];
-
-    for (let i = 0; i < lines.length; i++) {
-      const [a, b, c] = lines[i];
-      if (this.squares[a] &&
-        this.squares[a] == this.squares[b] &&
-        this.squares[a] == this.squares[c]
-      ) {
-        return this.squares[a];
-      }
-    }
-
-    return null;
-
-  }
-
   ngOnDestroy(): void {
     this.subscription.unsubscribe();
   }
@@ -158,6 +131,7 @@ export class AIboardComponent implements OnInit, OnDestroy {
 
   matrixToArray(matrix) {
     let newArr = [];
+    // tslint:disable-next-line:prefer-for-of
     for (let i = 0; i < matrix.length; i++) {
       newArr = newArr.concat(matrix[i].slice());
     }
@@ -173,7 +147,7 @@ export class AIboardComponent implements OnInit, OnDestroy {
         // Is the spot available?
         if (this.board[i][j] == null) {
           this.board[i][j] = this.ai;
-          let score = this.minimax(this.board, 0, false);
+          const score = this.minimax(this.board, 0, false);
           this.board[i][j] = null;
           if (score > bestScore) {
             bestScore = score;
@@ -187,7 +161,7 @@ export class AIboardComponent implements OnInit, OnDestroy {
   }
 
   equals3(a, b, c) {
-    return a == b && b == c && a != null;
+    return a === b && b === c && a != null;
   }
 
   checkWinner() {
@@ -224,6 +198,7 @@ export class AIboardComponent implements OnInit, OnDestroy {
       }
     }
 
+    // tslint:disable-next-line:triple-equals
     if (winner == null && openSpots == 0) {
       return 'tie';
     } else {
@@ -233,7 +208,7 @@ export class AIboardComponent implements OnInit, OnDestroy {
 
 
   minimax(board, depth, isMaximizing) {
-    let result = this.checkWinner();
+    const result = this.checkWinner();
     if (result !== null) {
       return this.scores[result];
     }
@@ -245,7 +220,7 @@ export class AIboardComponent implements OnInit, OnDestroy {
           // Is the spot available?
           if (board[i][j] == null) {
             board[i][j] = this.ai;
-            let score = this.minimax(board, depth + 1, false);
+            const score = this.minimax(board, depth + 1, false);
             board[i][j] = null;
             bestScore = Math.max(score, bestScore);
           }
@@ -259,7 +234,7 @@ export class AIboardComponent implements OnInit, OnDestroy {
           // Is the spot available?
           if (board[i][j] == null) {
             board[i][j] = this.human;
-            let score = this.minimax(board, depth + 1, true);
+            const score = this.minimax(board, depth + 1, true);
             board[i][j] = null;
             bestScore = Math.min(score, bestScore);
           }
