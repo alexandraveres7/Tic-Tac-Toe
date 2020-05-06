@@ -1,3 +1,7 @@
+.parent-div{
+  margin-top:280px;
+}
+
 input[type=text] {
   width: 100%;
   padding: 12px 20px;
@@ -14,12 +18,16 @@ input[type=text]:focus {
   border: 3px solid #555;
 }
 
-h1{
-  color:#AD8CDB;
-}
-
 h2{
   color:#73B8EA;
+  font-weight: bold;
+  font-family: Arial, serif;
+}
+
+.tx{
+  color:#AD8CDB;
+  font-weight: bold;
+  font-family: Arial, serif;
 }
 
 .butt {

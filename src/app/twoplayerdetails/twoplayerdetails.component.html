@@ -2,6 +2,8 @@
 
 <form #f="ngForm" (ngSubmit)="onSubmit(f)" class="col s6">
 
+  <div style="width:50%;">
+    <div style="display:inline-block; width:45%;text-align:center;">
   <h1> Player 1</h1>
   <label for="fname1">First Name</label>
   <input type="text" id="fname1" ngModel name="fname1" required>
@@ -13,6 +15,8 @@
   <input type="text" id="fname2" ngModel name="fname2" required>
   <label for="lname2">Last Name</label>
   <input type="text" id="lname2" ngModel name="lname2" required>
+    </div>
+  </div>
 
   <button type="submit" class="butt" [disabled]="!f.valid">LET'S GO</button>
 </form>
