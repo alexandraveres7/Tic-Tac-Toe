@@ -10,6 +10,11 @@ input[type=text] {
   outline: none;
 }
 
+.nb-theme-cosmic nb-layout .layout .layout-container .content.center {
+  width: 900px;
+  flex: 0 100 1200px !important;
+}
+
 input[type=text]:focus {
   border: 3px solid #555;
 }
@@ -37,12 +42,13 @@ h2{
   text-decoration:none;
   text-shadow:0 1px 0 #283966;
   margin-top:30px;
+  margin-left: 340px;
 }
 .butt:hover {
   background-color:#95bca4;
 }
 .butt:active {
-  position:relative;
-  top:10px;
+  position:absolute;
+  top:50%;
 }
 

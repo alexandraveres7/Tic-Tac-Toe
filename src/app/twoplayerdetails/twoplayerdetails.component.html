@@ -1,21 +1,23 @@
-<h2>Please type in your details:</h2>
-
 <form #f="ngForm" (ngSubmit)="onSubmit(f)" class="col s6">
-
-  <div style="width:50%;">
-    <div style="display:inline-block; width:45%;text-align:center;">
-  <h1> Player 1</h1>
-  <label for="fname1">First Name</label>
-  <input type="text" id="fname1" ngModel name="fname1" required>
-  <label for="lname1">Last Name</label>
-  <input type="text" id="lname1" ngModel name="lname1" required>
-
-  <h1> Player 2</h1>
-  <label for="fname2">First Name</label>
-  <input type="text" id="fname2" ngModel name="fname2" required>
-  <label for="lname2">Last Name</label>
-  <input type="text" id="lname2" ngModel name="lname2" required>
+  <div style="margin-top:200px;">
+  <h2> Please type in your details: </h2>
+  <div style="display:flex; justify-content:space-between;">
+    <div style="width:300px;">
+      <h1> Player 1</h1>
+      <label for="fname1">FIRST NAME</label>
+      <input type="text" id="fname1" ngModel name="fname1" required>
+      <label for="lname1">LAST NAME</label>
+      <input type="text" id="lname1" ngModel name="lname1" required>
     </div>
+
+    <div style="width:300px;">
+      <h1> Player 2</h1>
+      <label for="fname2">FIRST NAME</label>
+      <input type="text" id="fname2" ngModel name="fname2" required>
+      <label for="lname2">LAST NAME</label>
+      <input type="text" id="lname2" ngModel name="lname2" required>
+    </div>
+  </div>
   </div>
 
   <button type="submit" class="butt" [disabled]="!f.valid">LET'S GO</button>
