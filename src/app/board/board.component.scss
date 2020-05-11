@@ -1,7 +1,9 @@
 main {
+  margin-top:65px;
   display:grid;
   grid-template-columns: 180px 180px 180px;
   grid-gap: 0px;
+  margin-left: 140px;
 }
 
 app-square {
