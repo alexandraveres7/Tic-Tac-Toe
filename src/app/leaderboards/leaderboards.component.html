@@ -1,6 +1,6 @@
+<a href="/" class="buttHome">HOME</a>
 
-
-<h4 class="parent-div" style="text-align:center;">
+<h1 class="parent-div" style="text-align:center;">
 
   <label class="title">Leaderboard</label>
 
@@ -10,13 +10,13 @@
      <TR BGCOLOR="#95bca4" ALIGN="center" VALIGN="middle">
        <TD WIDTH="200" HEIGHT="50"><B><FONT COLOR="#AD8CDB"><STRONG>Player1</STRONG></FONT></B></TD>
        <TD WIDTH="200"HEIGHT="50"><B><FONT COLOR="#AD8CDB"><STRONG>Player2</STRONG></FONT></B></TD>
-       <TD WIDTH="100" HEIGHT="50"><B><FONT COLOR="#AD8CDB"><strong>Status</strong></FONT></B></TD>
+       <TD WIDTH="100" HEIGHT="50"><B><FONT COLOR="#AD8CDB"><strong>Winner</strong></FONT></B></TD>
      </TR>
      <TR VALIGN="middle">
        <TD WIDTH="200" HEIGHT="20" ALIGN="center"><FONT COLOR="#FFFFFF">{{ldb.name1}}</FONT></TD>
        <TD WIDTH="200" HEIGHT="20" ALIGN="center"><FONT COLOR="#FFFFFF">{{ldb.name2}}</FONT></TD>
        <TD WIDTH="100" HEIGHT="20" ALIGN="center"><FONT COLOR="#FFFFFF">
-         {{!ldb.winner ? 'Draw': (ldb.winner === 'X' ? "Win " + ldb.name1: "Win " + ldb.name2) }}
+         {{!ldb.winner ? 'Draw': (ldb.winner === 'X' ? ldb.name1: ldb.name2) }}
        </FONT></TD>
      </TR>
 
@@ -25,7 +25,7 @@
 
 </div>
 
-</h4>
+</h1>
 
 <ng-template #noLdboards>
   <hr>

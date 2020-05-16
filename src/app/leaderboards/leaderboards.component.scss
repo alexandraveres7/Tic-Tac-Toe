@@ -17,3 +17,21 @@ h1{
   text-shadow: 4px 4px 0 #AD8CDB, 2px -2px 0 #AD8CDB, -2px 4px 0 #AD8CDB, -2px -2px 0 #AD8CDB, 4px 0px 0 #AD8CDB, 0px 4px 0 #AD8CDB, -2px 0px 0 #AD8CDB, 0px -4px 0 #AD8CDB;
   color: #ffffff;
 }
+
+.buttHome {
+  box-shadow: 0 0 0 2px #ffffff;
+  background-color:#ffffff;
+  border-radius:10px;
+  border:1px solid #95bca4;
+  display:inline-block;
+  cursor:pointer;
+  color:#95bca4;
+  font-family: Arial, serif;
+  font-size:19px;
+  font-weight:bold;
+  padding:20px 35px;
+  text-decoration:none;
+  text-shadow:0 1px 0 #283966;
+  margin-top:30px;
+  margin-left: -210px;
+}
