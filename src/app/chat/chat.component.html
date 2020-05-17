@@ -1,3 +1,7 @@
+<div *ngFor="let message of messages">
+ <a style="color: white" {{message}}
+</div>
 
-<input [(ngModel)]="message" />
+
+<input [(ngModel)]="message" (keyup)="$event.key == 13 && sendMessage()" />
 <button (click)="sendMessage()">Send</button>

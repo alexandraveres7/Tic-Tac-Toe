@@ -1,4 +1,5 @@
 import * as io from 'socket.io-client';
+import {Observable, Observer} from 'rxjs';
 
 export class ChatService {
   private url = 'http://localhost:3000';
@@ -10,5 +11,13 @@ export class ChatService {
 
   public sendMessage(message) {
     this.socket.emit('new-message', message);
+  }
+
+  public getMessages = () => {
+    return new Observable((observer: Observer<any>) => {
+      this.socket.on('new-message', (message) => {
+        observer.next(message);
+      });
+    });
   }
 }

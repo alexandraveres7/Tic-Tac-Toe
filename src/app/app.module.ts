@@ -38,7 +38,8 @@ const appRoutes: Routes = [
   {path: 'gamemode', component: GamemodeComponent},
   {path: 'twoplayerdetails', component: TwoplayerdetailsComponent},
   {path: 'oneplayerdetails', component: OneplayerdetailsComponent},
-  {path: 'playboardAI', component: AIboardComponent}
+  {path: 'playboardAI', component: AIboardComponent},
+  {path: 'chat', component: ChatComponent}
 ];
 
 // @ts-ignore
