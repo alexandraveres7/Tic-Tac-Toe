@@ -1,9 +1,7 @@
 let express = require('express')
 let app = express();
-
 let http = require('http');
 let server = http.Server(app);
-
 let socketIO = require('socket.io');
 let io = socketIO(server);
 
